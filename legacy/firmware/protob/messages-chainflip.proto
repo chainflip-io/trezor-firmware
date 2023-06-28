@@ -1,0 +1,21 @@
+syntax = "proto2";
+package hw.trezor.messages.chainflip;
+
+// Sugar for easier handling in Java
+option java_package = "com.satoshilabs.trezor.lib.protobuf";
+option java_outer_classname = "TrezorMessageChainflip";
+
+message ChainflipRequestPubkey {
+}
+
+message ChainflipPubkey {
+    required string pubkey = 1;
+}
+
+message ChainflipRequestSignature {
+    required bytes payload = 1;
+}
+
+message ChainflipSignature {
+    required string signature = 1;
+}

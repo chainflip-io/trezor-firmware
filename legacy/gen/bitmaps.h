@@ -34,5 +34,6 @@ extern const BITMAP bmp_logo48_empty;
 extern const BITMAP bmp_logo64_empty_half;
 extern const BITMAP bmp_logo64_half;
 extern const BITMAP bmp_webauthn;
+extern const BITMAP bmp_chainflip;
 
 #endif

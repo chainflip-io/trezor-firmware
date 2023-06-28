@@ -1846,6 +1846,54 @@ if TYPE_CHECKING:
         def is_type_of(cls, msg: Any) -> TypeGuard["CardanoSignTxFinished"]:
             return isinstance(msg, cls)
 
+    class ChainflipRequestPubkey(protobuf.MessageType):
+
+        @classmethod
+        def is_type_of(cls, msg: Any) -> TypeGuard["ChainflipRequestPubkey"]:
+            return isinstance(msg, cls)
+
+    class ChainflipPubkey(protobuf.MessageType):
+        pubkey: "str"
+
+        def __init__(
+            self,
+            *,
+            pubkey: "str",
+        ) -> None:
+            pass
+
+        @classmethod
+        def is_type_of(cls, msg: Any) -> TypeGuard["ChainflipPubkey"]:
+            return isinstance(msg, cls)
+
+    class ChainflipRequestSignature(protobuf.MessageType):
+        payload: "bytes"
+
+        def __init__(
+            self,
+            *,
+            payload: "bytes",
+        ) -> None:
+            pass
+
+        @classmethod
+        def is_type_of(cls, msg: Any) -> TypeGuard["ChainflipRequestSignature"]:
+            return isinstance(msg, cls)
+
+    class ChainflipSignature(protobuf.MessageType):
+        signature: "str"
+
+        def __init__(
+            self,
+            *,
+            signature: "str",
+        ) -> None:
+            pass
+
+        @classmethod
+        def is_type_of(cls, msg: Any) -> TypeGuard["ChainflipSignature"]:
+            return isinstance(msg, cls)
+
     class CipherKeyValue(protobuf.MessageType):
         address_n: "list[int]"
         key: "str"

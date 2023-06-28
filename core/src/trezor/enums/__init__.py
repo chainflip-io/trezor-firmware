@@ -251,6 +251,10 @@ if TYPE_CHECKING:
         WebAuthnCredentials = 801
         WebAuthnAddResidentCredential = 802
         WebAuthnRemoveResidentCredential = 803
+        ChainflipRequestPubkey = 900
+        ChainflipPubkey = 901
+        ChainflipRequestSignature = 902
+        ChainflipSignature = 903
 
     class FailureType(IntEnum):
         UnexpectedMessage = 1

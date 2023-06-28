@@ -61,6 +61,7 @@
 #include "nem.h"
 #include "nem2.h"
 #include "stellar.h"
+#include "chainflip.h"
 #endif
 
 #if EMULATOR
@@ -452,5 +453,6 @@ bool fsm_layoutPathWarning(void) {
 #include "fsm_msg_ethereum.h"
 #include "fsm_msg_nem.h"
 #include "fsm_msg_stellar.h"
+#include "fsm_msg_chainflip.h"
 
 #endif

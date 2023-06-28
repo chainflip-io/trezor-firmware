@@ -259,6 +259,10 @@ class MessageType(IntEnum):
     WebAuthnCredentials = 801
     WebAuthnAddResidentCredential = 802
     WebAuthnRemoveResidentCredential = 803
+    ChainflipRequestPubkey = 900
+    ChainflipPubkey = 901
+    ChainflipRequestSignature = 902
+    ChainflipSignature = 903
 
 
 class FailureType(IntEnum):
@@ -2865,6 +2869,52 @@ class CardanoTxBodyHash(protobuf.MessageType):
 
 class CardanoSignTxFinished(protobuf.MessageType):
     MESSAGE_WIRE_TYPE = 319
+
+
+class ChainflipRequestPubkey(protobuf.MessageType):
+    MESSAGE_WIRE_TYPE = 900
+
+
+class ChainflipPubkey(protobuf.MessageType):
+    MESSAGE_WIRE_TYPE = 901
+    FIELDS = {
+        1: protobuf.Field("pubkey", "string", repeated=False, required=True),
+    }
+
+    def __init__(
+        self,
+        *,
+        pubkey: "str",
+    ) -> None:
+        self.pubkey = pubkey
+
+
+class ChainflipRequestSignature(protobuf.MessageType):
+    MESSAGE_WIRE_TYPE = 902
+    FIELDS = {
+        1: protobuf.Field("payload", "bytes", repeated=False, required=True),
+    }
+
+    def __init__(
+        self,
+        *,
+        payload: "bytes",
+    ) -> None:
+        self.payload = payload
+
+
+class ChainflipSignature(protobuf.MessageType):
+    MESSAGE_WIRE_TYPE = 903
+    FIELDS = {
+        1: protobuf.Field("signature", "string", repeated=False, required=True),
+    }
+
+    def __init__(
+        self,
+        *,
+        signature: "str",
+    ) -> None:
+        self.signature = signature
 
 
 class CipherKeyValue(protobuf.MessageType):
