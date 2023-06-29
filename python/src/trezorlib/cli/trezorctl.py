@@ -34,6 +34,7 @@ from . import (
     binance,
     btc,
     cardano,
+    chainflip,
     cosi,
     crypto,
     debug,
@@ -400,6 +401,7 @@ def wait_for_emulator(obj: TrezorConnection, timeout: float) -> None:
 cli.add_command(binance.cli)
 cli.add_command(btc.cli)
 cli.add_command(cardano.cli)
+cli.add_command(chainflip.cli)
 cli.add_command(cosi.cli)
 cli.add_command(crypto.cli)
 cli.add_command(device.cli)

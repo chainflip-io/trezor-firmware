@@ -231,3 +231,7 @@ if not utils.BITCOIN_ONLY:
     WebAuthnCredentials = 801
     WebAuthnAddResidentCredential = 802
     WebAuthnRemoveResidentCredential = 803
+    ChainflipRequestPubkey = 900
+    ChainflipPubkey = 901
+    ChainflipRequestSignature = 902
+    ChainflipSignature = 903

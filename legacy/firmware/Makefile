@@ -65,6 +65,7 @@ OBJS += ethereum_tokens.o
 OBJS += nem2.o
 OBJS += nem_mosaics.o
 OBJS += stellar.o
+OBJS += chainflip.o
 endif
 
 OBJS += debug.o
@@ -142,6 +143,7 @@ OBJS += ../vendor/trezor-crypto/cash_addr.o
 OBJS += protob/messages-ethereum.pb.o
 OBJS += protob/messages-nem.pb.o
 OBJS += protob/messages-stellar.pb.o
+OBJS += protob/messages-chainflip.pb.o
 endif
 
 OPTFLAGS ?= -Os

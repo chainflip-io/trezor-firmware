@@ -28,6 +28,7 @@
 #include "messages-management.pb.h"
 #include "messages-nem.pb.h"
 #include "messages-stellar.pb.h"
+#include "messages-chainflip.pb.h"
 
 // CoinJoin fee rate multiplier.
 #define FEE_RATE_DECIMALS (1000000)
@@ -147,6 +148,10 @@ void fsm_msgStellarAllowTrustOp(const StellarAllowTrustOp *msg);
 void fsm_msgStellarAccountMergeOp(const StellarAccountMergeOp *msg);
 void fsm_msgStellarManageDataOp(const StellarManageDataOp *msg);
 void fsm_msgStellarBumpSequenceOp(const StellarBumpSequenceOp *msg);
+
+// chainflip
+void fsm_msgChainflipRequestPubkey(const ChainflipRequestPubkey *msg);
+void fsm_msgChainflipRequestSignature(const ChainflipRequestSignature *msg);
 
 void fsm_msgRebootToBootloader(void);
 

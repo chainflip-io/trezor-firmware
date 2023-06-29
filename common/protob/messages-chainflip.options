@@ -1,0 +1,3 @@
+ChainflipPubkey.pubkey                                  max_size:65
+ChainflipRequestSignature.payload                       max_size:256
+ChainflipSignature.signature                            max_size:129
