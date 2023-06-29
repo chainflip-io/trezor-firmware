@@ -16,6 +16,8 @@ PRODUCTION=0 ./build-docker.sh --skip-bitcoinonly --skip-core chainflip
 ## Build the cli tool
 Run these commands:
 ```
+python3 -m venv .venv
+source .venv/bin/activate
 pip install pillow mako munch pyyaml substrateinterface
 git submodule update --init --recursive
 make gen
