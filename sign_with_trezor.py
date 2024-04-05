@@ -11,9 +11,9 @@ def print_call(call, indent=0):
             print_call(x['value'], indent+1)
         else:
             arg = str(x['value'])
-            if len(arg) > 64:
-                arg = arg[:64] + "..."
-            print("    "*(indent+1) + x['name'] + ": " + arg)
+            if len(arg) > 128:
+                arg = arg[:128] + "..."
+            print("    "*(indent+1) + x['name'] + ": " + arg + "  (" + x['type'] + ")")
     print("    "*indent + ")")
 
 # The substrate libraries decode into arrays for arguments, but expect dicts when encoding...
@@ -30,14 +30,18 @@ def fix_args(module, function, args):
             temp_function = a['value']['call_function']
             temp_args = a['value']['call_args']
             new_args[a['name']] = fix_args(temp_module, temp_function, temp_args)
+        elif a['type'] == 'Price':
+            new_args[a['name']] = [a['value']]
+        elif a['type'] == 'BoundedVec<PalletConfigUpdate<T, I>, ConstU32<10>>':
+            new_args[a['name']] = [a['value']]
         else:
             new_args[a['name']] = a['value']
     result['call_args'] = new_args
     return result
 
-endpoint = input("Enter Endpoint URL: (defaults to ws://127.0.0.1:9944) ")
+endpoint = input("Enter Endpoint URL: (defaults to wss://mainnet-rpc.chainflip.io) ")
 if endpoint == "":
-    endpoint = "ws://127.0.0.1:9944"
+    endpoint = "wss://mainnet-rpc.chainflip.io"
 api = SubstrateInterface(url=endpoint)
 calldata = open(sys.argv[1], "r").read() if len(sys.argv) == 2 else input("Enter Calldata: ")
 call = api.create_scale_object(type_string='Call', data=ScaleBytes(calldata)).decode()
