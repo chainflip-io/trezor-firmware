@@ -34,6 +34,8 @@ def fix_args(module, function, args):
             new_args[a['name']] = [a['value']]
         elif a['type'] == 'BoundedVec<PalletConfigUpdate<T, I>, ConstU32<10>>':
             new_args[a['name']] = [a['value']]
+        elif a['type'] == 'Vec<RuntimeCall>':
+            new_args[a['name']] = [fix_args(c['call_module'], c['call_function'], c['call_args']) for c in a['value']]
         else:
             new_args[a['name']] = a['value']
     result['call_args'] = new_args
