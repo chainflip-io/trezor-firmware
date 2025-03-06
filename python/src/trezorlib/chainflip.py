@@ -1,6 +1,5 @@
 import struct
 import xdrlib
-import xdrlib
 
 from . import messages
 from .tools import expect

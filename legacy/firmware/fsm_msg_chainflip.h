@@ -70,7 +70,7 @@ void fsm_msgChainflipRequestSignature(const ChainflipRequestSignature *msg) {
   CHECK_PIN
   layoutDialogSwipe(&bmp_chainflip, _("Cancel"), _("Sign"), NULL,
                         _("Do you want to sign"), _("using your Chainflip"),
-                        _("Governance Pubkey?"), NULL, NULL, NULL);
+                        _("Governance Key?"), NULL, NULL, NULL);
 
   if (!protectButton(ButtonRequestType_ButtonRequest_ConfirmOutput, false)) {
     fsm_sendFailure(FailureType_Failure_ActionCancelled,
