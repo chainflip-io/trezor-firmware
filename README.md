@@ -17,15 +17,13 @@ PRODUCTION=0 ./build-docker.sh --skip-bitcoinonly --skip-core chainflip
 Run these commands:
 ```
 brew install protobuf
-python3 -m venv .venv
+python3.11 -m venv .venv
 source .venv/bin/activate
 pip install pillow mako munch pyyaml substrate-interface click trezor google protobuf
 git submodule update --init --recursive
 make gen
 cd python
-python setup.py build
-python setup.py install
-pip uninstall trezor
+pip install .
 ```
 Now you should be able to run `trezorctl`. Check that the "chainflip" command is available.
 
