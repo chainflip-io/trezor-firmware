@@ -40,6 +40,8 @@ You need to set-up your Trezor after installing the new firmware. This works jus
 In polkadot.js, create an extrinsic, but instead of submitting it, copy the "encoded call data".
 Then run
 ```
+# If you are using Python Virtual Environmenr run:
+source .venv/bin/activate
 python sign_with_trezor.py
 ```
 and provide the requested data. For example
