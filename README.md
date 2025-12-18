@@ -21,7 +21,7 @@ PRODUCTION=0 ./build-docker.sh --skip-bitcoinonly --skip-core chainflip
 Run these commands:
 ```
 brew install protobuf
-python3.11 -m venv .venv
+python3 -m venv .venv
 source .venv/bin/activate
 pip install pillow mako munch pyyaml substrate-interface click trezor google protobuf
 git submodule update --init --recursive
