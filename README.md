@@ -8,7 +8,11 @@ extrinsics using the Trezor Model One. It consists of three parts:
 - A script `sign_with_trezor.py` which makes creating, signing and submitting extrinsics easier.
 
 ## Build the firmware
-To make the build deterministic and reproducible, the firmware is built inside a Docker container. For security reasons, the Trezor will not accept "production" builds that haven't been signed by Trezor themselves, but "non-production" builds work fine. The build script expects a tag name and will build the code in the corresponding commit. If you want to make changes to the code, you need to commit them and tag the last commit. For convenience, the latest commit on this repo is tagged as "chainflip". To build it, run:
+To make the build deterministic and reproducible, the firmware is built inside a Docker container. For security reasons, the Trezor will not accept "production" builds that haven't been signed by Trezor themselves, but "non-production" builds work fine. The build script expects a tag name and will build the code in the corresponding commit. If you want to make changes to the code, you need to commit them and tag the last commit. For convenience, the latest commit on this repo is tagged as "chainflip". To build it:
+
+If you're using MacOS, you need to install [Docker Desktop](https://docs.docker.com/desktop/setup/install/mac-install/) first.
+
+Then run:
 ```
 PRODUCTION=0 ./build-docker.sh --skip-bitcoinonly --skip-core chainflip
 ```
@@ -40,7 +44,7 @@ You need to set-up your Trezor after installing the new firmware. This works jus
 In polkadot.js, create an extrinsic, but instead of submitting it, copy the "encoded call data".
 Then run
 ```
-# If you are using Python Virtual Environmenr run:
+# If you are using Python Virtual Environment run:
 source .venv/bin/activate
 python sign_with_trezor.py
 ```

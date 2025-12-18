@@ -128,7 +128,9 @@ else
 fi
 
 # check alpine checksum
-if command -v sha256sum &> /dev/null ; then
+if command -v gsha256sum &> /dev/null ; then
+    echo "${ALPINE_CHECKSUM}  ci/${ALPINE_TARBALL}" | gsha256sum -c
+elif command -v sha256sum &> /dev/null && sha256sum --help 2>&1 | grep -qE '(^|[[:space:]])-c([,[:space:]]|$)' ; then
     echo "${ALPINE_CHECKSUM}  ci/${ALPINE_TARBALL}" | sha256sum -c
 else
     echo "${ALPINE_CHECKSUM}  ci/${ALPINE_TARBALL}" | shasum -a 256 -c
