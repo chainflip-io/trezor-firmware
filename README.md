@@ -38,7 +38,11 @@ trezorctl firmware update -f ./build/legacy/firmware/firmware.bin
 ```
 Follow the instructions on the device.
 Installing the firmware will completely wipe your Trezor! Make sure you have your recovery phrase if you used it before!
-You need to set-up your Trezor after installing the new firmware. This works just like with a normal Trezor.
+You need to set-up your Trezor after installing the new firmware. This works just like with a normal Trezor. Save the seed offline and in a safe place.
+NOTE: Newer versions of Trezor Suite will force you to install latest official firmware. If you can't skip the step, use the cli to set-up your Trezor:
+```
+trezorctl device setup
+```
 
 ## Signing and submitting an extrinsic
 In polkadot.js, create an extrinsic, but instead of submitting it, copy the "encoded call data".
