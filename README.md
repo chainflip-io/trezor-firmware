@@ -23,7 +23,7 @@ Run these commands:
 brew install protobuf
 python3 -m venv .venv
 source .venv/bin/activate
-pip install pillow mako munch pyyaml substrate-interface click trezor google protobuf
+pip install py-xdrlib pillow mako munch pyyaml substrate-interface click trezor google protobuf
 git submodule update --init --recursive
 make gen
 cd python
